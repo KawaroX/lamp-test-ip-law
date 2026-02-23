@@ -22,3 +22,15 @@ ip_infringement(P, Owner, IP) :-
     uses_mark(P, Mark),
     similar_mark(Mark, IP),
     not licensed(P, IP).
+
+% 商业秘密侵权 (v1.1.0 新增)
+ip_infringement(P, Owner, IP) :-
+    ip_protected(Owner, IP),
+    ip_right(Owner, IP, trade_secret),
+    misappropriates(P, IP),
+    not licensed(P, IP).
+
+% 商业秘密保护不需要注册
+ip_protected(Owner, IP) :-
+    ip_right(Owner, IP, trade_secret),
+    confidential_measures(Owner, IP).

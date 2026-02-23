@@ -1,6 +1,6 @@
 {
   "name": "ip-law",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Intellectual property protection rules based on Chinese IP Law",
   "rules": ["rules/main.lp"],
   "tags": ["ip", "patent", "trademark", "chinese-law"],

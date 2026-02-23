@@ -22,6 +22,16 @@
       ],
       "expected": ["ip_protected(company_a, patent_2)"],
       "unexpected": ["ip_infringement(company_c, company_a, patent_2)"]
+    },
+    {
+      "id": "trade_secret_misappropriation",
+      "facts": [
+        "ip_right(tech_co, secret_1, trade_secret)",
+        "confidential_measures(tech_co, secret_1)",
+        "misappropriates(ex_employee, secret_1)"
+      ],
+      "expected": ["ip_protected(tech_co, secret_1)", "ip_infringement(ex_employee, tech_co, secret_1)"],
+      "unexpected": []
     }
   ]
 }
