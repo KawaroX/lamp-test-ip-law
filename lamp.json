@@ -1,0 +1,20 @@
+{
+  "name": "ip-law",
+  "version": "1.0.0",
+  "description": "Intellectual property protection rules based on Chinese IP Law",
+  "rules": ["rules/main.lp"],
+  "tags": ["ip", "patent", "trademark", "chinese-law"],
+  "depends_on": [],
+  "conflicts": [],
+  "load_before": [],
+  "load_after": [],
+  "inputs": [
+    {"name": "ip_type", "type": "atom", "required": true, "description": "Type of IP (patent/trademark/trade_secret)"},
+    {"name": "infringement_type", "type": "atom", "required": true, "description": "Type of alleged infringement"}
+  ],
+  "outputs": [
+    {"predicate": "ip_infringement", "arity": 3, "description": "IP infringement determination"},
+    {"predicate": "ip_protected", "arity": 2, "description": "IP is under protection"}
+  ],
+  "tests": "./tests"
+}

@@ -1,0 +1,27 @@
+{
+  "cases": [
+    {
+      "id": "patent_infringement",
+      "facts": [
+        "ip_right(company_a, patent_1, patent)",
+        "registered(patent_1)",
+        "manufactures(company_b, product_x)",
+        "uses_patent(product_x, patent_1)"
+      ],
+      "expected": ["ip_protected(company_a, patent_1)", "ip_infringement(company_b, company_a, patent_1)"],
+      "unexpected": []
+    },
+    {
+      "id": "licensed_use_no_infringement",
+      "facts": [
+        "ip_right(company_a, patent_2, patent)",
+        "registered(patent_2)",
+        "manufactures(company_c, product_y)",
+        "uses_patent(product_y, patent_2)",
+        "licensed(company_c, patent_2)"
+      ],
+      "expected": ["ip_protected(company_a, patent_2)"],
+      "unexpected": ["ip_infringement(company_c, company_a, patent_2)"]
+    }
+  ]
+}
